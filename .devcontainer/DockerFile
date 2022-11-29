@@ -1,0 +1,12 @@
+FROM node:16.14.2
+# Official Node images are available at https://hub.docker.com/_/node
+
+# node may come with an older version of npm. Ensure we have a specific npm.
+RUN npm install -g npm@8.5.5
+
+################################################################################
+# Install prerequisites
+RUN apt-get update
+RUN apt-get install -y \
+    lsb-release \
+    curl

@@ -1,0 +1,33 @@
+version: '3.7'
+
+name: 'node-typescript-filmsapi'
+services:
+  devcontainer:
+    container_name: devcontainer
+    build: .
+    working_dir: /src
+    networks:
+      - dev-network
+    ports:
+       - 3000:3000
+    volumes:
+       - ..:/src
+    command: sleep infinity
+  
+  mongo:
+    image: mongo:5.0.9
+    container_name: mongodev
+    restart: always
+    networks:
+      - dev-network
+    volumes:
+      - devmongodb:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  devmongodb:
+
+networks:
+  dev-network:
+    driver: bridge

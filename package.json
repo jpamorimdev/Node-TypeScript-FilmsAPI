@@ -1,0 +1,13 @@
+{
+  "name": "node-typescript-filmsapi",
+  "version": "1.0.0",
+  "description": "Example Project on how to build and develop a Films List Endpoint with pagination using TypeScript, MongoDB and Docker.",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
