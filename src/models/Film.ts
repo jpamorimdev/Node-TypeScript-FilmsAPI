@@ -2,6 +2,26 @@ import {
   Model, Schema, model, Document
 } from 'mongoose';
 
+/**
+ * @openapi
+ * components:
+ *  schema:
+ *    Film:
+ *      type: object
+ *      properties:
+ *        id:
+ *          type: string
+ *        title:
+ *          type: string
+ *        original_title:
+ *          type: string
+ *        description:
+ *          type: string
+ *        release_date:
+ *          type: string
+ *        rt_score:
+ *          type: string
+ */
 export interface IFilm extends Document {
   id: string;
   title: string;

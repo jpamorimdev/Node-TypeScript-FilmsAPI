@@ -5,8 +5,19 @@ import APIRouter from "./api.router";
 
 const router = express.Router();
 
-router.get("/health", async (req: Request, res: Response) => {
-  return res.send(await HealthController.getMessage());
+/**
+ * @openapi
+ * /healthcheck:
+ *  get:
+ *     tags:
+ *     - Healthcheck
+ *     description: Responds if the app is up and running
+ *     responses:
+ *       200:
+ *         description: App is up and running
+ */
+router.get("/healthcheck", async (req: Request, res: Response) => {
+  return res.sendStatus(await HealthController.getStatus());
 });
 
 router.use("/api", APIRouter);

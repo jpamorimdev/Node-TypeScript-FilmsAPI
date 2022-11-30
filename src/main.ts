@@ -5,7 +5,7 @@ import allRoutes from './routes';
 import util from 'util';
 import SafeMongooseConnection from './lib/safe-mongoose-connection';
 import { seedFilms } from './utils/seedFilms';
-
+import swaggerDocs from "./utils/swagger";
 dotenv.config();
 
 const httpServer: Express = express();
@@ -70,6 +70,7 @@ async function initHTTPServer() {
   return new Promise<void>((resolve, reject) => {
     httpServer.listen(SERVER_PORT, () => {
       logger.info(`HTTP server listening on port ${SERVER_PORT}`);
+      swaggerDocs(httpServer);
       resolve();
     });
   });
