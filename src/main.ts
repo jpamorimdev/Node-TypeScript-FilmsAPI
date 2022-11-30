@@ -4,6 +4,7 @@ import logger from './lib/logger';
 import allRoutes from './routes';
 import util from 'util';
 import SafeMongooseConnection from './lib/safe-mongoose-connection';
+import { seedFilms } from './utils/seedFilms';
 
 dotenv.config();
 
@@ -76,6 +77,7 @@ async function initHTTPServer() {
 
 async function main() {
   await initMongo();
+  await seedFilms();
   await initHTTPServer();
 }
 
